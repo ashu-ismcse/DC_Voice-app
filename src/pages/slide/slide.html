@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      DCVoice
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides pager>
+
+  <ion-slide style="background-color: #ECECEC">
+      <ion-icon name="ios-chatbubbles" style="zoom:8.0;"></ion-icon>
+    <h2>Welcome to DCVoice</h2>
+  </ion-slide>
+
+  <ion-slide padding style="background-color: #ECECEC">
+     <div>
+         <h1 padding> Select Operator </h1>
+         <ion-icon name="calculator" style="zoom:3.0;"></ion-icon>
+     </div>
+    <!--<ion-list style="background-color: #7f8c8d">-->
+        <p ion-text>
+             Press<b> Select an Operator </b> Button to select an Operator
+        </p>
+        <p ion-text>
+            Select any Operator from the given list
+        </p>
+        <p ion-text>
+            For simplicity and testing purpose<b> password is same as Operator name </b>
+        </p>
+    <!--</ion-list>-->
+
+  </ion-slide>
+
+  <ion-slide padding style="background-color: #ECECEC">
+      <div>
+        <h1 padding>Start</h1>
+        <ion-icon name="log-in" style="zoom:3.0;"></ion-icon>
+      </div>
+    <!--<ion-list style="background-color: #7f8c8d">-->
+        <p ion-text> Press start Button and say <b>START </b> to begin. </p>
+        <p ion-text> After recieving reply wait for atleast <b>Half Second</b> </p>
+        <p ion-text> The voices are sent to server in packets of 3sec recordings which starts just after reciving reply from server </p> 
+    <!--</ion-list>-->
+  </ion-slide>
+
+  <ion-slide style="background-color: #ECECEC">
+      <h1 padding> <b> Continue </b> </h1>
+      <ion-icon style="zoom:4.0;" name = "md-arrow-round-forward" (click) = "Start()">  </ion-icon>
+  </ion-slide>
+
+</ion-slides>
+</ion-content>
