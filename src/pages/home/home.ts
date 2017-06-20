@@ -24,31 +24,35 @@ export class HomePage {
 
   }
 
-  TurnOnBT() {
-    //this.bluetoothSerial.enable().then((succ) =>{}).catch( e => alert("Error"));
-    //this.bluetoothSerial.setDiscoverable(2000);
-    this.navCtrl.push(DevicesPage);
+  SignIn() {
+      // naviagte to page containing list of operator
+      this.navCtrl.push(DevicesPage);
   }
 
+
+  // ----------------------------- Function to reocord voice and send to server -----------------------------//
+  // Uses media Plugin, Transfer Plugin
   RecordAndSend() {
 
-    if(this.stop) {
-      return;
-    }
-
-    const onStatusUpdate = (status) => console.log(status);
-    const onSuccess = () => console.log('Action is successful.');
-    const onError = (error) => console.error(error.message + "Recording Error");
-
-    let file: MediaObject = this.media.create('myrec.wav' , onStatusUpdate , onSuccess , onError);
-    file.startRecord();
-    window.setTimeout(() => file.stopRecord(), 3000);
-
-
-    setTimeout(() => {
-        let fileTransfer: TransferObject = this.transfer.create();
-        let fileURL = "/storage/emulated/0/myrec.wav"
-        let ur = "http://192.168.43.112:8000/";
+    // Stop sending when button stop is pressed ... it makes stop variable 1 using function stopFun() -----------
+    if(this.stop) {                                                                                           
+      return;                                                                                                 
+    }                                                                                                         
+                                                                                                              
+    const onStatusUpdate = (status) => console.log(status);                                                   
+    const onSuccess = () => console.log('Action is successful.');                                             
+    const onError = (error) => console.error(error.message + "Recording Error");                              
+                                                                             
+                                                                                                              
+    let file: MediaObject = this.media.create('myrec.wav' , onStatusUpdate , onSuccess , onError);            
+    file.startRecord();                                                                                       
+    window.setTimeout(() => file.stopRecord(), 3000);                                                         
+                                                                                                              
+                                                                                                              
+    setTimeout(() => {                                                                                        
+        let fileTransfer: TransferObject = this.transfer.create();                                            
+        let fileURL = "/storage/emulated/0/myrec.wav"                                                         
+        let ur = "http://192.168.43.112:8000/";                                                             
         let options : FileUploadOptions = {
           fileKey : "file",
           fileName : "file",
